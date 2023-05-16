@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <ul id="dragRoot" style="list-style-type: none;padding-left: 0;margin-bottom: 5px;">
+        <li style="border: 1px solid;padding: 3px 0;background-color: #f1f1f1;border-color: #dbdbdb;font-weight: 500;">
+            <i data-ul="3" class="fa fa-angle-right klik-collapse" style="margin-right: 8px;margin-left: 8px;cursor: pointer;"></i> 
+            <span class="node-facility" style="width: 90%;display: inline-block;">NODE 1</span>
+            <i data-ullistmenu="3" class="fa fa-ellipsis-v menulistmenu" style="margin-right: 8px;margin-left: 8px;font-size: 12px;line-height: 26px;vertical-align: bottom;right: 25px;cursor: pointer;" aria-hidden="true"></i>
+        </li>
+        <ul id="uldd-3" class="mydropdown" style="list-style-type: none; position:absolute;right: 17px;z-index: 1000;padding:0;margin-top: -14px;border: 1px solid #e1e1e1;display:none;background-color: #fff;border-radius: 5px;">
+            <li style="padding: 3px 10px;border-radius: 5px 5px 0 0;">
+                <span class="node-facility">update</span>
+            </li>
+            <li style="padding: 3px 10px;border-radius: 0 0 5px 5px;">
+                <span class="node-facility">delete</span>
+            </li>
+        </ul>
+        <ul class="submenu" id="ul-3" style="list-style-type: none;">
+            <li style="border: 1px solid;margin: 5px 0px;padding: 3px 0;background-color: #f1f1f1;border-color: #dbdbdb;font-weight: 500;">
+                <i class="fa fa-circle" style="margin-right: 8px;margin-left: 8px; font-size: 9px;line-height: 26px;vertical-align: bottom;cursor: pointer;"></i> 
+                <span class="node-facility" style="width: 90%;display: inline-block;">NODE 1.1</span>
+                <i data-ullistmenu="1-1" class="fa fa-ellipsis-v menulistmenu" style="margin-right: 8px;margin-left: 8px;font-size: 12px;line-height: 26px;vertical-align: bottom;right: 25px;cursor: pointer;" aria-hidden="true"></i>
+            </li>
+                    
+            <ul id="uldd-1-1" class="mydropdown" style="list-style-type: none; position:absolute;right: 17px;z-index: 1000;padding:0;margin-top: -14px;border: 1px solid #e1e1e1;display:none;background-color: #fff;border-radius: 5px;">
+                <li style="padding: 3px 10px;border-radius: 5px 5px 0 0;"><span class="node-facility">update</span></li>
+                <li style="padding: 3px 10px;border-radius: 0 0 5px 5px;"><span class="node-facility">delete</span></li>
+            </ul>
+
+            <li style="border: 1px solid;margin: 5px 0px;padding: 3px 0;background-color: #f1f1f1;border-color: #dbdbdb;font-weight: 500;">
+                <i class="fa fa-circle" style="margin-right: 8px;margin-left: 8px; font-size: 9px;line-height: 26px;vertical-align: bottom;cursor: pointer;"></i> 
+                <span class="node-facility" style="width: 90%;display: inline-block;">NODE 1.2</span>
+                <i data-ullistmenu="1-2" class="fa fa-ellipsis-v menulistmenu" style="margin-right: 8px;margin-left: 8px;font-size: 12px;line-height: 26px;vertical-align: bottom;right: 25px;cursor: pointer;" aria-hidden="true"></i>
+            </li>
+                    
+            <ul id="uldd-1-2" class="mydropdown" style="list-style-type: none; position:absolute;right: 17px;z-index: 1000;padding:0;margin-top: -14px;border: 1px solid #e1e1e1;display:none;background-color: #fff;border-radius: 5px;">
+                <li style="padding: 3px 10px;border-radius: 5px 5px 0 0;"><span class="node-facility">update</span></li>
+                <li style="padding: 3px 10px;border-radius: 0 0 5px 5px;"><span class="node-facility">delete</span></li>
+            </ul>
+        </ul>
+        <li style="border: 1px solid;margin: 5px 0;padding: 3px 0;background-color: #f1f1f1;border-color: #dbdbdb;font-weight: 500;">
+            <i class="fa fa-angle-right" style="margin-right: 8px;margin-left: 8px;"></i>
+            <span class="node-facility" style="width: 90%;display: inline-block;">NODE 2</span>
+            <i data-ullistmenu="5" class="fa fa-ellipsis-v menulistmenu" style="margin-right: 8px;margin-left: 8px;font-size: 12px;line-height: 26px;vertical-align: bottom;right: 25px;cursor: pointer;" aria-hidden="true"></i>
+        </li>
+        <ul id="uldd-7" class="mydropdown" style="list-style-type: none; position:absolute;right: 17px;z-index: 1000;padding:0;margin-top: -14px;border: 1px solid #e1e1e1;display:none;background-color: #fff;border-radius: 5px;">
+            <li style="padding: 3px 10px;border-radius: 5px 5px 0 0;"><span class="node-facility">update</span></li>
+            <li style="padding: 3px 10px;border-radius: 0 0 5px 5px;"><span class="node-facility">delete</span></li>
+        </ul>
+    </ul>
+<script>
+    var anchors = document.getElementsByClassName('klik-collapse');
+    for(var i = 0; i < anchors.length; i++) {
+        var anchor = anchors[i];
+        anchor.onclick = function() {
+            this.classList.toggle("mystyle");
+            var ulanchor = document.getElementById('ul-'+this.dataset.ul);
+            var h = ulanchor.offsetHeight;
+            var children = ulanchor.children;
+            var ttlheight = 0;
+            for (var i = 0; i < children.length; i++) {
+                if(children[i].tagName == 'LI'){
+                    ttlheight = (ttlheight+children[i].offsetHeight+6);
+                }
+            }
+            if(h == 0){
+                ulanchor.style.height = ttlheight+"px";
+            }else{
+                ulanchor.style.height = "0px";
+            }
+        }
+    }
+    var d = "AAA";
+    document.addEventListener("click", (e) => {
+        var anchorspopup = document.getElementsByClassName('mydropdown');
+        if(d != "AAA"){
+            for(var i = 0; i < anchorspopup.length; i++) {
+                var anchorpopup = anchorspopup[i];
+                anchorpopup.style.display = "none";
+            }
+            d = "AAA";
+        }else{
+            d = "BBB";
+        }
+    });
+    
+    var anchorsmenulistmenu = document.getElementsByClassName('menulistmenu');
+    for(var i = 0; i < anchorsmenulistmenu.length; i++) {
+        var anchormenulistmenu = anchorsmenulistmenu[i];
+        anchormenulistmenu.onclick = function() {
+            var ulanchor = document.getElementById('uldd-'+this.dataset.ullistmenu);
+            ulanchor.style.display = "block";
+        }
+    }
+</script>
+
+<style>
+    #dragRoot i{
+        animation: rotation2 0.3s linear 0s 1 normal forwards;
+    }
+    @keyframes rotation2 {
+      from {
+        transform: rotate(90deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+    #dragRoot i.mystyle{
+        animation: rotation 0.3s linear 0s 1 normal forwards;
+    }
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(90deg);
+      }
+    }
+    #dragRoot > .submenu{
+      overflow: hidden;
+      transition: height 500ms;
+      height: 0;
+    }
+    .mydropdown > li:hover{
+        background-color:#f0fff0!important;
+        cursor:pointer;
+    }
+</style>
