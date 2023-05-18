@@ -1,0 +1,83 @@
+
+#root i{
+    animation: rotation2 0.3s linear 0s 1 normal forwards;
+}
+@keyframes rotation2 {
+    from {
+      transform: rotate(90deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+}
+#root i.mystyle{
+    animation: rotation 0.3s linear 0s 1 normal forwards;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+#root > .submenu{
+    overflow: hidden;
+    transition: height 500ms;
+    height: 0;
+}
+.mydropdown > li:hover{
+    background-color:#f0fff0!important;
+    cursor:pointer;
+}
+
+#root{
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+
+#root > li, .submenu > li{
+    border: 1px solid;
+    padding: 3px 0;
+    background-color: #f1f1f1;
+    border-color: #dbdbdb;
+    font-weight: 500;
+    position: relative;
+}
+
+.submenu > li > i:first-child{
+    margin-right: 8px;margin-left: 8px; font-size: 9px;line-height: 26px;vertical-align: bottom;
+}
+
+#root > li > i:first-child{
+    margin-right: 8px;margin-left: 8px;line-height: 26px;font-weight: 600;
+}
+
+#root > li > i:first-child.klik-collapse{
+    cursor: pointer;
+}
+
+#root > li > span, .submenu > li > span{
+    line-height: 26px;font-family: system-ui;
+}
+
+#root > li > i:last-child, .submenu > li > i:last-child{
+    margin-right: 8px;margin-left: 8px;font-size: 12px;line-height: 26px;vertical-align: bottom;right: 25px;cursor: pointer;position: absolute;
+}
+
+#root .mydropdown{
+    list-style-type: none; position:absolute;right: 17px;z-index: 1000;padding:0;margin-top: -14px;border: 1px solid #e1e1e1;display:none;background-color: #fff;border-radius: 5px;
+}
+
+#root .mydropdown > li:first-child{
+    padding: 3px 10px;border-radius: 5px 5px 0 0;
+}
+
+#root .mydropdown > li:last-child{
+    padding: 3px 10px;border-radius: 0 0 5px 5px;
+}
+
+
+
+
